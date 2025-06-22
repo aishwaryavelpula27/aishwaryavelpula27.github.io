@@ -1,150 +1,850 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" href=https://waph-phung.github.io/style1.css>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <style>
-    .button {
-      background-color: #4CAF50; /* Green */
-      border: none;
-      color: white;
-      padding: 5px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 12px;
-      margin: 4px 2px;
-      cursor: pointer;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aishwarya velpula-Project1</title>
+    <link rel="icon" href="https://img.icons8.com/ios/50/circled-a.png" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+
+    
+    <style>
+    /* ==== General Styles ==== */
+    body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f9fa;
+        scroll-behavior: smooth;
     }
-    .round {border-radius: 8px;}
-    #response {background-color: #ff9800;} /* Orange */
-  </style>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="utf-8">
-<title>WAPH-velpulaa2</title>
+
+    h1, h2, h3, h4 {
+        color: #0056b3;
+        font-weight: 600;
+    }
+
+    section {
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        margin-bottom: 2.5rem; /* Default margin for sections */
+    }
+
+    /* Adjust section margins for the new two-column layout */
+    .two-column-layout .col-lg-8 > section {
+        margin-bottom: 2.5rem; /* Maintain spacing between sections in the right column */
+    }
+
+    .two-column-layout .col-lg-8 > section:last-child {
+        margin-bottom: 0; /* No bottom margin for the very last section in the right column */
+    }
+
+    /* For the left column, you might want less bottom margin for the contact section
+       if the hero and contact are the only two items. */
+    .two-column-layout .col-lg-4 > section {
+        margin-bottom: 2.5rem; /* Space between hero and contact if both are sections */
+    }
+
+    .two-column-layout .col-lg-4 > section:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Adjust margin for sections within the columns */
+    .two-column-layout .section {
+        margin-top: 0; /* Reset default top margin for sections within columns */
+    }
+
+
+    section:last-of-type {
+        margin-bottom: 0;
+    }
+
+    /* ==== Navbar Styles ==== */
+    .navbar {
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .navbar-brand {
+        font-weight: 700;
+        color: #0056b3 !important;
+    }
+
+    .nav-link {
+        color: #333 !important;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+    }
+
+    .nav-link:hover,
+    .nav-item.active .nav-link,
+    .nav-link.active {
+        color: #007bff !important;
+        font-weight: 600;
+    }
+
+
+    .profile-headshot {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border: 5px solid #000000;
+        padding: 3px;
+        border-radius: 50%;
+        box-shadow: 0 0 15px rgba(0,0,0,0.15);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .profile-headshot:hover {
+        transform: scale(1.05);
+    }
+
+    /* ==== Cards ==== */
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+        transition: transform 0.2s ease-in-out;
+        overflow: hidden;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* ==== Icon Links ==== */
+    .icon-link {
+        font-size: 1.5rem;
+        color: #007bff;
+        margin: 0 10px;
+        transition: color 0.2s;
+    }
+
+    .icon-link:hover {
+        color: #0056b3;
+    }
+
+    /* ==== Digital Clock ==== */
+    #digitalClock {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 2.5rem;
+        padding: 20px;
+        background-color: #000000;
+        color: #ffffff;
+        border-radius: 10px;
+        text-align: center;
+        letter-spacing: 2px;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        margin-top: 1rem;
+    }
+
+    /* ==== Analog Clock ==== */
+    #analogClockContainer {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+        background-color: #fff;
+        border: 5px solid #0056b3;
+        border-radius: 50%;
+        position: relative;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        padding: 5px;
+    }
+
+    .analog-hand {
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        transform-origin: bottom center;
+        border-radius: 2px;
+        z-index: 5;
+    }
+
+    .hour-hand {
+        width: 4px;
+        height: 35%;
+        margin-left: -2px;
+        background-color: #007bff;
+    }
+
+    .minute-hand {
+        width: 3px;
+        height: 45%;
+        margin-left: -1.5px;
+        background-color: #28a745;
+    }
+
+    .second-hand {
+        width: 1px;
+        height: 48%;
+        margin-left: -0.5px;
+        background-color: #dc3545;
+        z-index: 6;
+    }
+
+    .analog-center {
+        width: 12px;
+        height: 12px;
+        background-color: #333;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+    }
+
+    /* ==== API Disclaimer ==== */
+    .api-disclaimer {
+        background-color: #fff3cd;
+        border-color: #ffeeba;
+        color: #856404;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    /* ==== Back to Top Button ==== */
+    #backToTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        background-color: #007bff;
+        color: white;
+        padding: 15px;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    #backToTopBtn:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+    }
+
+    .footer-tracker {
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    /* ==== Spinner ==== */
+    .spinner-border {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    /* ==== AI Assistant Section ==== */
+    #ai-assistant .form-control {
+        border-radius: 0.5rem;
+        border: 1px solid #ced4da;
+        padding: 1rem;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    #ai-assistant .form-control:focus {
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.25rem rgba(0,123,255,0.25);
+        outline: 0;
+    }
+
+    #blurb-output {
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #e9ecef;
+        border: 1px solid #dee2e6;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        text-align: center;
+        font-style: italic;
+        color: #6c757d;
+    }
+
+    #blurb-output.generated {
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        color: #155724;
+        font-style: normal;
+    }
+
+    #blurb-output.error {
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        color: #721c24;
+        font-style: normal;
+    }
+
+    /* ==== Responsive Design ==== */
+    @media (max-width: 768px) {
+        .hero-section {
+            padding: 60px 0;
+        }
+
+        .profile-headshot {
+            width: 120px;
+            height: 120px;
+        }
+
+        h1.display-4 {
+            font-size: 2.5rem;
+        }
+
+        .lead {
+            font-size: 1rem;
+        }
+
+        section {
+            padding: 30px;
+            margin-bottom: 2rem;
+        }
+        /* Reset specific column margins on smaller screens */
+        .two-column-layout .col-lg-4 > section,
+        .two-column-layout .col-lg-8 > section {
+            margin-bottom: 2rem;
+            margin-top: 0; /* Resetting here as sections naturally stack on small screens */
+        }
+        .two-column-layout .col-lg-4 > section:last-child,
+        .two-column-layout .col-lg-8 > section:last-child {
+            margin-bottom: 0;
+        }
+
+
+        #digitalClock {
+            font-size: 1.8rem;
+            padding: 15px;
+        }
+
+        #analogClockContainer {
+            width: 150px;
+            height: 150px;
+            border-width: 4px;
+        }
+
+        .analog-hand.hour-hand { height: 30%; }
+        .analog-hand.minute-hand { height: 40%; }
+        .analog-hand.second-hand { height: 45%; }
+
+        #backToTopBtn {
+            padding: 12px;
+            font-size: 1rem;
+        }
+    }
+</style>
+    
 </head>
 <body>
-<div id="top">
-	<h1>Web Application programming and Hacking</h1>
-	<h2>Front-End Web Development lab</h2>
-	<h3>Instructor: Dr.phu phung</h3>
-</div>
-<div>
-<div id="menubar">
-	<h3>student:velpulaa2</h3>
-	<div id="email" onclick="showhideEmail()">show my email</div>
-	<script src="email.js"></script>
-	<img src="images/headshot.jpg" alt="My headshot" width="50">
-	<div id="digit-clock"></div>
-	<script type="text/javascript">
-		function displayTime() {
-			document.getElementById('digit-clock').innerHTML = "current time:" + new Date();
-		}
-		setInterval(displayTime,500);
-	</script>
-</div>
-<<canvas id="analog-clock" width="150" height="150" style="background-color:#999"></canvas>
-  <script src="https://waph-phung.github.io/clock.js"></script>
-  <script>
-      var canvas = document.getElementById("analog-clock");
-      var ctx = canvas.getContext("2d");
-      var radius = canvas.height/2;
-      ctx.translate(radius,radius);
-      radius = radius * 0.90;
-      setInterval(drawClock, 1000);
-      function drawClock(){
-        drawFace(ctx, radius);
-        drawNumbers(ctx, radius);
-        drawTime(ctx, radius);
-      }
-</script>
 
-<div id="main">
-	<p>A simple HTML page</p>
-	using the <a href="https://www.w3schools.com/html" target="blank"> w3Schools templates</a>
-	<hr>
-	<b>interaction with forms</b>
-	<div>
-		<i>Forms with an HTTP GET Request</i>
-		<form action="echo.php"method="GET">
-			your input:<input name="data">
-			<input type="submit" value="submit">
-		</form>
-		<div>
-		<i>Forms with an HTTP GET Response</i>
-		<form action="echo.php"method="POST" name="echo.php">
-			your input:<input name="data">
-			<input type="submit" value="submit">
-		</form>
-	</div>
-	<hr>
-	<b>experiments with javascript code</b><br>
-	<i>Inlined javascript code</i>
-	<div id="date" onclick="document.getElementById('date').innerHTML=Date()">click here to show date()</div>
-	<hr>
-    <i>Ajax requests</i><br>
-    Your input: 
-    <input name="name" onkeypress="console.log('you have pressed a key')" id="data">
-    <input class="button round" type="button" value="Ajax Echo" onclick="getEcho()">
-    <div id="response"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#top">Aishwarya Velpula</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ai-assistant">AI Assistant</a></li> <li class="nav-item"><a class="nav-link" href="#clocks">Clocks</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#api-integration">API Integrations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="waph.html" target="_blank">WAPH Course</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5 two-column-layout" id="top">
+        <div class="row">
+            <div class="col-lg-4 d-flex flex-column">
+                <header class="hero-section text-center section">
+                    <img src="aishwarya.jpg" alt="Your Professional Headshot" class="profile-headshot mb-3">
+                    <h1 class="display-4 mb-2">Aishwarya Velpula</h1>
+                    <p class="lead text-muted">Software Developer | Web Enthusiast | Problem Solver</p>
+                    <div id="welcomeMessage" class="alert alert-info mt-4 mx-auto" role="alert" style="max-width: 600px;"></div>
+                </header>
+
+                <section id="contact" class="p-4 text-center section mt-auto"> <h2 class="mb-4">Get In Touch</h2>
+                    <p class="lead">Feel free to connect with me!</p>
+                    <p>
+                        <a href="mailto:velpulaa2@udayton.edu" class="icon-link"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/aishwaryavelpula/" target="_blank" class="icon-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/aishwaryavelpula27" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+                    </p>
+                    <p class="mt-4">
+                        <small class="text-muted">You can also find my resume <a href="" target="_blank">here</a>.</small>
+                    </p>
+                </section>
+            </div>
+
+            <div class="col-lg-8 d-flex flex-column">
+                <section id="about" class="p-4 section">
+                    <h2 class="mb-4 text-center">About Me</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <p class="text-center">I'm a Computer Science student who loves building cool things with code. I'm curious about how technology works and enjoy learning new tools and languages. Whether it’s web development or solving coding problems, I’m always excited to grow, create, and be part of meaningful tech projects.</p>
+                            <div class="text-center mt-4">
+                                <button id="toggleEmail" class="btn btn-outline-primary btn-lg rounded-pill px-4">
+                                    <i class="fas fa-envelope me-2"></i> Show/Hide My Email
+                                </button>
+                                <span id="myEmail" class="ms-3 fs-5" style="display: none;">velpulaa2@udayton.edu</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="clocks" class="p-4 section">
+                    <h2 class="mb-4 text-center">Interactive Clocks</h2>
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-md-5 text-center mb-4 mb-md-0">
+                            <h3 class="mb-3">Digital Clock</h3>
+                            <div id="digitalClock" class="mx-auto"></div>
+                        </div>
+                        <div class="col-md-5 text-center">
+                            <h3 class="mb-3">Analog Clock</h3>
+                            <div id="analogClockContainer" class="mx-auto">
+                                <div class="analog-hand hour-hand"></div>
+                                <div class="analog-hand minute-hand"></div>
+                                <div class="analog-hand second-hand"></div>
+                                <div class="analog-center"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="api-integration" class="p-4 section">
+                    <h2 class="mb-4 text-center">Public API Integrations</h2>
+                    <p class="api-disclaimer mx-auto" style="max-width: 800px;">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Disclaimer:* The content generated by these public/third-party services is provided by external sources (JokeAPI, Numbers API), and I am not responsible for its accuracy, appropriateness, or availability.
+                    </p>
+                    <div class="row mt-4 justify-content-center">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title text-center mb-3"><i class="fas fa-laugh-squint me-2"></i> Joke of the Minute</h3>
+                                    <blockquote class="blockquote text-center mb-0">
+                                        <p class="mb-0 fs-5" id="jokeDisplay">Loading a fresh joke for you...</p>
+                                        <footer class="blockquote-footer mt-2">Source: <cite title="JokeAPI">JokeAPI</cite></footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title text-center mb-3"><i class="fas fa-calculator me-2"></i> Random Number Fact</h3>
+                                    <div id="numberFactDisplay" class="text-center">
+                                        <p>Loading an interesting fact...</p>
+                                    </div>
+                                    <footer class="blockquote-footer mt-2 text-center">Source: <cite title="Numbers API">numbersapi.com</cite></footer>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="ai-assistant" class="p-4 section">
+                    <h2 class="mb-4 text-center"><i class="fas fa-robot me-2"></i>AI Assistant: Professional Blurb Generator</h2>
+                    <p class="lead text-center">Craft a compelling professional summary or elevator pitch for your profile using AI!</p>
+                    <p class="text-muted small text-center mb-3">
+                        Tell me about your current role, key achievements, and what you're looking for (e.g., "Software Developer, built scalable APIs, seeking full-time backend role").
+                        The AI will generate a concise summary.
+                    </p>
+                    <div class="form-group mb-4">
+                        <textarea class="form-control rounded-md" id="blurb-input" rows="4" placeholder="e.g., 'Junior web developer, built e-commerce site, looking for front-end internship'"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button id="generate-blurb-btn" class="btn btn-primary rounded-pill px-4 shadow">
+                            Generate Professional Blurb ✨
+                        </button>
+                    </div>
+                    <div id="blurb-output" class="mt-4 shadow-sm" >
+                        <div class="d-flex flex-column align-items-center justify-content-center d-none" id="blurb-spinner">
+                            <div class="spinner-border text-primary mb-3" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <span class="text-muted">Generating your blurb...</span>
+                        </div>
+                        <p class="text-muted text-center mb-0" id="blurb-placeholder">Your generated blurb will appear here.</p>
+                    </div>
+                    <p class="text-muted small mt-3 text-center">
+                        
+                    </p>
+                </section>
+
+                <section id="experience" class="p-4 section">
+                    <h2 class="mb-4 text-center">Experience</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Microsoft Azure intern</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">May 2023</h6>
+                                    <ul>
+                                        <li> Deployed secure cloud infrastructure.</li>
+                                        <li>used Azure tools for monitoring  and automation</li>
+                                        <li>Enhanced cloud scalability andperformance</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="skills" class="p-4 section">
+                    <h2 class="mb-4 text-center">Skills</h2>
+                    <div class="row justify-content-center text-center">
+                        <div class="col-md-4 mb-3">
+                            <div class="card p-3 h-100">
+                                <h4 class="card-title mb-3"><i class="fas fa-code me-2"></i> Programming Languages</h4>
+                                <ul class="list-unstyled">
+                                    <li>Python</li>
+                                    <li>c++</li>
+                                    <li>JavaScript</li>
+                                    <li>Java</li>
+                                    <li>C</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card p-3 h-100">
+                                <h4 class="card-title mb-3"><i class="fas fa-cubes me-2"></i> Frameworks & Libraries</h4>
+                                <ul class="list-unstyled">
+                                    <li>Django</li>
+                                    <li>React.js</li>
+                                    <li>Node.js / Express.js</li>
+                                    <li>jQuery</li>
+                                    <li>Bootstrap</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card p-3 h-100">
+                                <h4 class="card-title mb-3"><i class="fas fa-tools me-2"></i> Tools & Technologies</h4>
+                                <ul class="list-unstyled">
+                                    <li>Git / GitHub</li>
+                                    <li>SQL</li>
+                                    <li>RESTful APIs</li>
+                                    <li>AWS</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <button id="backToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <footer class="bg-dark text-white text-center py-4 rounded-top-4">
+        <div class="container">
+            <p class="mb-1">&copy; 2025 aishwarya. All rights reserved.</p>
+            <p class="mb-1">Built with passion and a lot of JavaScript!</p>
+            <div class="footer-tracker">
+                <a href="https://info.flagcounter.com/Q8eq"><img src="https://s01.flagcounter.com/count/Q8eq/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+                </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTFyN+OP/SILQadJWneSL+wJgPjF4/nJTquFwFvpq_zLSS1JpQyJ8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-SuW1+SMGNl+wJ6P4Jp8g1qJ4C/c4B4I+mS/sD1y+A/iVzF+C+l+C+X+W+A==" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <script>
-      function getEcho() {
-        var input = document.getElementById("data").value;
-        if (input.length == 0) return;
-        var req = new XMLHttpRequest();
-        req.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("response").innerHTML =
-              "Response from server: " + this.responseText;
-          }
-        };
-        req.open("GET", "echo.php?data=" + input, true);
-        req.send();
-        document.getElementById("data").value = "";
-      }
+        $(document).ready(function() {
+            // --- Local Storage Management for Last Visit ---
+            const lastVisitStorageKey = "lastVisitTimestamp";
+
+            /**
+             * Sets the last visit timestamp in localStorage.
+             * @param {string} timestamp - The current date/time string.
+             */
+            function setLastVisit(timestamp) {
+                try {
+                    localStorage.setItem(lastVisitStorageKey, timestamp);
+                    console.log(`[LocalStorage] Stored last visit: ${timestamp}`);
+                } catch (e) {
+                    console.error("Error setting localStorage item:", e);
+                }
+            }
+
+            /**
+             * Retrieves the last visit timestamp from localStorage.
+             * @returns {string|null} The stored timestamp, or null if not found.
+             */
+            function getLastVisit() {
+                try {
+                    const storedValue = localStorage.getItem(lastVisitStorageKey);
+                    console.log(`[LocalStorage] Retrieved last visit: ${storedValue}`);
+                    return storedValue;
+                } catch (e) {
+                    console.error("Error getting localStorage item:", e);
+                    return null;
+                }
+            }
+
+            // --- Welcome Message based on Local Storage ---
+            const welcomeMessageElement = $('#welcomeMessage');
+            let lastVisit = getLastVisit(); // Use the new function
+
+            if (lastVisit) {
+                welcomeMessageElement.html(`Welcome back! Your last visit was <strong>${lastVisit}</strong>.`);
+            } else {
+                welcomeMessageElement.text("Welcome to my homepage for the first time!");
+            }
+            // Update the last visit time for the current visit
+            setLastVisit(new Date().toLocaleString('en-US', {
+                year: 'numeric', month: 'long', day: 'numeric',
+                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
+            }));
+
+
+            // --- Digital Clock Functionality ---
+            function updateDigitalClock() {
+                const now = new Date();
+                const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+                $('#digitalClock').text(now.toLocaleTimeString('en-US', options));
+            }
+            setInterval(updateDigitalClock, 1000); // Update every second
+            updateDigitalClock(); // Initial call to display immediately
+
+
+            // --- Analog Clock Functionality ---
+            function updateAnalogClock() {
+                const now = new Date();
+                const seconds = now.getSeconds();
+                const minutes = now.getMinutes();
+                const hours = now.getHours();
+
+                // Calculate degrees for each hand
+                // Second hand: 6 degrees per second (360 / 60)
+                const secondDeg = (seconds / 60) * 360;
+                // Minute hand: 6 degrees per minute, plus adjustment for seconds
+                const minuteDeg = ((minutes + seconds / 60) / 60) * 360;
+                // Hour hand: 30 degrees per hour, plus adjustment for minutes
+                const hourDeg = ((hours % 12 + minutes / 60) / 12) * 360;
+
+                // Apply rotations using jQuery's css method for transform
+                $('.second-hand').css('transform', `translateX(-50%) rotate(${secondDeg}deg)`);
+                $('.minute-hand').css('transform', `translateX(-50%) rotate(${minuteDeg}deg)`);
+                $('.hour-hand').css('transform', `translateX(-50%) rotate(${hourDeg}deg)`);
+            }
+            setInterval(updateAnalogClock, 1000); // Update every second
+            updateAnalogClock(); // Initial call
+
+
+            // --- Show/Hide Email Functionality ---
+            $('#toggleEmail').on('click', function() {
+                $('#myEmail').slideToggle('slow'); // jQuery's slideToggle for a smooth animation
+            });
+
+
+            // --- JokeAPI Integration ---
+            /**
+             * Fetches a random joke from JokeAPI and displays it.
+             * Excludes sensitive flags.
+             */
+            function fetchJoke() {
+                $.ajax({
+                    url: 'https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit',
+                    method: 'GET',
+                    success: function(data) {
+                        let jokeText = '';
+                        if (data.type === 'single') {
+                            jokeText = data.joke;
+                        } else if (data.type === 'twopart') {
+                            jokeText = `${data.setup} <br><br> ${data.delivery}`;
+                        }
+                        $('#jokeDisplay').html(jokeText);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error('Error fetching joke:', jqXHR);
+                        $('#jokeDisplay').text('Oops! Failed to load a joke. Please check your connection or try again later.');
+                    }
+                });
+            }
+            fetchJoke(); // Fetch a joke immediately on page load
+            setInterval(fetchJoke, 60 * 1000); // Fetch a new joke every 1 minute
+
+
+            // --- Graphics API Integration (Numbers API Example) ---
+            /**
+             * Fetches a random fact from Numbers API and displays it.
+             */
+            function fetchNumberFact() {
+                const numberFactDisplay = $('#numberFactDisplay');
+                numberFactDisplay.html('<p>Loading an interesting fact...</p>'); // Show loading message
+
+                // Get current month and day for a date fact, or a random number
+                const today = new Date();
+                const month = today.getMonth() + 1; // getMonth() is 0-indexed
+                const day = today.getDate();
+
+                // You can choose different types of facts: 'trivia', 'math', 'date', 'year'
+                // For a dynamic professional profile, a 'date' fact about today might be interesting
+                // or a 'random' trivia fact. Let's do a random trivia fact.
+                const factType = 'trivia'; // or 'date', 'math', 'year'
+                const randomNumber = Math.floor(Math.random() * 1000); // Fact about a random number up to 1000
+
+                let apiUrl;
+                if (factType === 'date') {
+                    apiUrl = `http://numbersapi.com/${month}/${day}/${factType}`;
+                } else {
+                    apiUrl = `http://numbersapi.com/${randomNumber}/${factType}`;
+                }
+                
+                $.ajax({
+                    url: apiUrl,
+                    method: 'GET',
+                    success: function(data) {
+                        numberFactDisplay.html(`<p class="mb-0 fs-5">${data}</p>`);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error('Error fetching number fact:', jqXHR);
+                        numberFactDisplay.html('<p class="text-danger">Failed to load a number fact. Please try again later.</p>');
+                    }
+                });
+            }
+            fetchNumberFact(); // Fetch a fact immediately on page load
+
+
+            // AI Assistant Blurb Generator
+            // Changed ID from #generateBlurbBtn to #generate-blurb-btn and #blurbInput to #blurb-input
+            $('#generate-blurb-btn').on('click', function() {
+                const keywords = $('#blurb-input').val().toLowerCase();
+                const outputDiv = $('#blurb-output');
+                const spinner = $('#blurb-spinner');
+                const placeholder = $('#blurb-placeholder');
+
+                outputDiv.removeClass('generated error');
+                spinner.removeClass('d-none'); // Show spinner
+                placeholder.addClass('d-none'); // Hide placeholder
+
+                setTimeout(() => {
+                    spinner.addClass('d-none'); // Hide spinner
+
+                    let blurb = "A dedicated professional with a strong passion for data. Ready to bring analytical rigor to your team.";
+                    
+                    if (keywords.includes('data analysis') || keywords.includes('data analyst')) {
+                        blurb = "Driven Data Analyst skilled in uncovering insights from complex datasets to inform strategic decisions.";
+                    } else if (keywords.includes('problem solver')) {
+                        blurb = "An analytical problem solver, adept at transforming challenges into data-driven solutions.";
+                    } else if (keywords.includes('sql') && keywords.includes('python')) {
+                        blurb = "Proficient in SQL and Python, combining robust technical skills with a keen eye for detail in data environments.";
+                    } else if (keywords.includes('excel')) {
+                        blurb = "Highly skilled in Excel for data manipulation, reporting, and insightful presentations.";
+                    } else if (keywords.includes('experience')) {
+                        blurb = "An experienced data enthusiast with a proven track record in data analysis and visualization projects.";
+                    } else if (keywords.includes('communication')) {
+                        blurb = "A clear communicator who translates complex data findings into understandable and actionable insights.";
+                    } else if (keywords.includes('machine learning') || keywords.includes('ai')) {
+                         blurb = "Enthusiastic about machine learning, with foundational knowledge in building predictive models from data.";
+                    } else if (keywords.includes('portfolio') || keywords.includes('projects')) {
+                        blurb = "Showcasing a strong portfolio of data projects, demonstrating practical application of analytical skills.";
+                    } else if (keywords.trim() === '') {
+                        // Modified: Provide a general blurb instead of an error message for empty input
+                        blurb = "Tell me more about what you're looking for, and I'll generate a tailored blurb for you!";
+                        outputDiv.removeClass('error'); // Ensure error class is removed
+                    }
+
+                    if (!outputDiv.hasClass('error')) {
+                        outputDiv.addClass('generated');
+                    }
+                    outputDiv.text(blurb);
+                    placeholder.addClass('d-none'); // Ensure placeholder remains hidden after generation
+
+                }, 1000);
+            });
+
+
+            // --- One More Functionality: Back to Top Button ---
+            const backToTopBtn = $('#backToTopBtn');
+
+            // Show/hide the button based on scroll position
+            $(window).on('scroll', function() {
+                if ($(this).scrollTop() > 300) { // Show button after scrolling 300px
+                    backToTopBtn.fadeIn();
+                } else {
+                    backToTopBtn.fadeOut();
+                }
+            });
+
+            // Smooth scroll to top when button is clicked
+            backToTopBtn.on('click', function() {
+                $('html, body').animate({scrollTop : 0}, 800); // Animate scroll to top over 800ms
+                return false; // Prevent default link behavior
+            });
+
+            // Active nav link highlighting based on scroll position (Bootstrap 5 compatible)
+            const sections = $('section');
+            const navLinks = $('.nav-link');
+
+            $(window).on('scroll', function () {
+                let currentScroll = $(this).scrollTop();
+
+                sections.each(function () {
+                    // Adjusted offset to account for sticky nav and potential top margins within columns
+                    const sectionTop = $(this).offset().top - $('.navbar').outerHeight() - 50; 
+                    const sectionBottom = sectionTop + $(this).outerHeight();
+                    const sectionId = $(this).attr('id');
+
+                    // Handle edge case for last section being partially visible
+                    const isLastSection = $(this).is(':last-of-type');
+                    const isAtBottom = (window.innerHeight + currentScroll) >= $(document).height() - 50; // A small buffer
+
+                    if ((currentScroll >= sectionTop && currentScroll < sectionBottom) || (isLastSection && isAtBottom)) {
+                        navLinks.removeClass('active');
+                        // Group clocks and api-integration under the "Clocks" nav link if they are visible
+                        if (sectionId === 'clocks' || sectionId === 'api-integration') {
+                             $(`.navbar-nav a[href="#clocks"]`).addClass('active');
+                        } else {
+                            $(`.navbar-nav a[href="#${sectionId}"]`).addClass('active');
+                        }
+                    }
+                });
+            });
+
+            // Initial highlight for the first visible section on load
+            if (sections.length > 0) {
+                let initialActiveSectionId = 'top'; // Default to 'top' or first section visible
+                const currentScrollTop = $(window).scrollTop();
+                // Find the first section that is significantly visible
+                for (let i = 0; i < sections.length; i++) {
+                    const section = $(sections[i]);
+                    const sectionTop = section.offset().top - $('.navbar').outerHeight();
+                    if (currentScrollTop >= sectionTop - $(window).height() / 3) { // Adjusted for visibility threshold
+                        initialActiveSectionId = section.attr('id');
+                    } else {
+                        break; // Stop once we find the first not-yet-visible section
+                    }
+                }
+                navLinks.removeClass('active');
+                if (initialActiveSectionId === 'clocks' || initialActiveSectionId === 'api-integration') {
+                    $(`.navbar-nav a[href="#clocks"]`).addClass('active');
+                } else if (initialActiveSectionId) {
+                    $(`.navbar-nav a[href="#${initialActiveSectionId}"]`).addClass('active');
+                } else {
+                    // If no section is visible, possibly highlight the first nav item or 'about'
+                    $('.navbar-nav a[href="#about"]').addClass('active');
+                }
+            }
+        }); // End of document.ready
     </script>
-    <input class="button round" type="button" value="jQuery Ajax GET Echo" onclick="jQueryAjax ()">
-      <script>
-        function jQueryAjax() {
-          var input = $("#data").val();
-          if (input.length == 0) return;
-          $.get("echo.php?data="+input,
-          function(result) {
-            $("#response").html("Response from server:" + result);
-          }
-          );
-          $("#data").val("");
-        }
-      </script>
-      <input class="button round" type="button" value="jQuery Ajax POST Echo" onclick="jQueryAjaxPost()">
-      <script>
-        function jQueryAjaxPost() {
-          var input = $("#data").val();
-          if (input.length == 0) return;
-          $.post("echo.php",{data: input},
-          function( result ) {
-            $("#response").html("Response from server:" + result);
-          }
-          );
-          $("#data").val("");
-        }
-      </script>
-      <div id="joke"></div>
-      <script>
-        $.get("https://v2.jokeapi.dev/joke/Programming?type=single", function(result){
-          console.log("From jokeAPI: "+ JSON.stringify(result));
-          $("#joke").html("A Programming Joke of the day: " + result.joke);
-        });
-      </script>
-      <input class="button round" type="button" value="guess Age" onclick="guessAge($('#data').val())">
-      <script>
-        async function guessAge(name) {
-          const response = await fetch("https://api.agify.io/?name="+name);
-          const result = await response.json();
-          $('#response').html("Hi "+ name + ", your age should be "+ result.age);
-        }
-      </script>
-</div>
 </body>
-</html> 
+</html>
