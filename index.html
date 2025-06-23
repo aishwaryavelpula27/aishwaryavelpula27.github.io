@@ -450,8 +450,8 @@
                                     <h3 class="card-title text-center mb-3"><i class="fas fa-calculator me-2"></i> Random Number Fact</h3>
                                     <div id="numberFactDisplay" class="text-center">
                                         <p>Loading an interesting fact...</p>
-                                    </div>
-                                    <footer class="blockquote-footer mt-2 text-center">Source: <cite title="Numbers API">numbersapi.com</cite></footer>
+                                    
+                                     <footer class="blockquote-footer mt-2 text-center">Source: <cite title="Numbers API">numbersapi.com</cite></footer>
                                 </div>
                             </div>
                         </div>
@@ -696,10 +696,8 @@
                 const month = today.getMonth() + 1; // getMonth() is 0-indexed
                 const day = today.getDate();
 
-                // You can choose different types of facts: 'trivia', 'math', 'date', 'year'
-                // For a dynamic professional profile, a 'date' fact about today might be interesting
-                // or a 'random' trivia fact. Let's do a random trivia fact.
-                const factType = 'trivia'; // or 'date', 'math', 'year'
+               
+                const factType = 'trivia'; 
                 const randomNumber = Math.floor(Math.random() * 1000); // Fact about a random number up to 1000
 
                 let apiUrl;
@@ -724,8 +722,7 @@
             fetchNumberFact(); // Fetch a fact immediately on page load
 
 
-            // AI Assistant Blurb Generator
-            // Changed ID from #generateBlurbBtn to #generate-blurb-btn and #blurbInput to #blurb-input
+           
             $('#generate-blurb-btn').on('click', function() {
                 const keywords = $('#blurb-input').val().toLowerCase();
                 const outputDiv = $('#blurb-output');
@@ -758,7 +755,7 @@
                     } else if (keywords.includes('portfolio') || keywords.includes('projects')) {
                         blurb = "Showcasing a strong portfolio of data projects, demonstrating practical application of analytical skills.";
                     } else if (keywords.trim() === '') {
-                        // Modified: Provide a general blurb instead of an error message for empty input
+                        
                         blurb = "Tell me more about what you're looking for, and I'll generate a tailored blurb for you!";
                         outputDiv.removeClass('error'); // Ensure error class is removed
                     }
@@ -767,7 +764,7 @@
                         outputDiv.addClass('generated');
                     }
                     outputDiv.text(blurb);
-                    placeholder.addClass('d-none'); // Ensure placeholder remains hidden after generation
+                    placeholder.addClass('d-none'); n
 
                 }, 1000);
             });
@@ -791,7 +788,6 @@
                 return false; // Prevent default link behavior
             });
 
-            // Active nav link highlighting based on scroll position (Bootstrap 5 compatible)
             const sections = $('section');
             const navLinks = $('.nav-link');
 
@@ -799,7 +795,7 @@
                 let currentScroll = $(this).scrollTop();
 
                 sections.each(function () {
-                    // Adjusted offset to account for sticky nav and potential top margins within columns
+                    
                     const sectionTop = $(this).offset().top - $('.navbar').outerHeight() - 50; 
                     const sectionBottom = sectionTop + $(this).outerHeight();
                     const sectionId = $(this).attr('id');
