@@ -9,19 +9,19 @@
 **Email**: velpulaa2@udayton.edu
 **Short-bio**: aishwarya has keen interests in ethical hacking and secure software development. 
 
-[![photo-2025-05-27-23-48-21.jpg](https://i.postimg.cc/52kY9cfN/photo-2025-05-27-23-48-21.jpg)](https://postimg.cc/5XLNpRHZ)
+![headshot](images/AISHWARYA.png)
 
 
-##overview
+## overview
 
 Check Out My New Online Portfolio!
 
 I'm excited to share my brand-new professional website, which I built and launched on GitHub Pages! It's more than just a resume; it's a dynamic showcase of my web development abilities. You'll find all my background info, plus some cool interactive touches like working clocks and a neat email reveal – all powered by JavaScript. I even hooked it up to some public APIs to pull in fun jokes and interesting images automatically! To make it super user-friendly, it remembers you with cookies and even tracks visits. I really think it highlights my skills for anyone looking for a developer.
 
-Come take a look! [Your Website's Clickable URL on github.io]
+   **deployed website:**[https://aishwaryavelpula27.github.io/](https://aishwaryavelpula27.github.io/)
+   **github repository:**[https://github.com/aishwaryavelpula27/aishwaryavelpula27.github.io/(https://github.com/aishwaryavelpula27/aishwaryavelpula27.github.io)
 
-Dive into the source code: [Direct Clickable Link to Your Project Folder on GitHub.com]
----
+
 
 ## Project Tasks Completed
 
